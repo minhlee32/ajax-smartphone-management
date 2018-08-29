@@ -43,10 +43,20 @@ public class SmartphoneController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST,
+    @RequestMapping(value="/edit/{id}", method=RequestMethod.GET)
+    public ModelAndView editSmartphonePage(@PathVariable int id) {
+        ModelAndView mav = new ModelAndView("phones/edit-phone");
+        Smartphone smartphone = smartphoneService.findById(id);
+        mav.addObject("sPhone", smartphone);
+        return mav;
+    }
+
+    @RequestMapping(value="/edit/{id}", method=RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public Smartphone deleteSmartphone(@PathVariable Integer id) {
-        return smartphoneService.remove(id);
+    public Smartphone editSmartphone(@PathVariable int id,
+                                     @RequestBody Smartphone smartphone) {
+        smartphone.setId(id);
+        return smartphoneService.save(smartphone);
     }
 }
