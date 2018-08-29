@@ -37,7 +37,7 @@ public class SmartphoneController {
 
     @GetMapping("")
     public ModelAndView allPhonesPage() {
-        ModelAndView modelAndView = new ModelAndView("phones/all-phones");
+        ModelAndView modelAndView = new ModelAndView("phones/all-phone");
 
         modelAndView.addObject("allphones", allPhones());
         return modelAndView;
