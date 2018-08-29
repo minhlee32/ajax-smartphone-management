@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart-phone 24h</title>
+    <style>
+        fieldset {
+            width: 300px;
+            margin: 100px auto;
+        }
+        legend {
+            color: cornflowerblue;
+            margin: auto;
+        }
+        a {
+            text-decoration: none;
+            color: #ff7c30;
+        }
+
+    </style>
+</head>
+<body>
+<fieldset>
+    <legend><h2>Hello admin</h2></legend>
+    <table>
+        <tr>
+            <p><a th:href="@{/smartphones/create}">Update new product</a></p>
+        </tr>
+        <tr>
+            <p><a th:href="@{/smartphones}">Show list</a></p>
+        </tr>
+    </table>
+</fieldset>
+</body>
+</html>
