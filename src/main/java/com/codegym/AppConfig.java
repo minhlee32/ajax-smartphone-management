@@ -32,10 +32,10 @@ import java.util.Properties;
 
 @Configuration
 @EnableWebMvc
-@EnableTransactionManagement
+//@EnableTransactionManagement
 @ComponentScan("com.codegym")
-@EnableJpaRepositories("com.codegym.repository")
-@EnableSpringDataWebSupport
+//@EnableJpaRepositories("com.codegym.repository")
+//@EnableSpringDataWebSupport
 public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
     private ApplicationContext applicationContext;
 
@@ -68,47 +68,47 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
         return viewResolver;
     }
 
-    //JPA Config
-    @Bean
-    @Qualifier(value = "entityManager")
-    public EntityManager entityManager(EntityManagerFactory entityManagerFactory) {
-        return entityManagerFactory.createEntityManager();
-    }
-
-    @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean() {
-        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-        em.setDataSource(dataSource());
-        em.setPackagesToScan("com.codegym.model");
-
-        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        em.setJpaVendorAdapter(vendorAdapter);
-        em.setJpaProperties(additionalProperties());
-        return em;
-    }
-
-    @Bean
-    public DataSource dataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/phones");
-        dataSource.setUsername("root");
-        dataSource.setPassword("123456");
-        return dataSource;
-    }
-
-    @Bean
-    public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
-        JpaTransactionManager transactionManager = new JpaTransactionManager();
-        transactionManager.setEntityManagerFactory(emf);
-        return transactionManager;
-    }
-
-    Properties additionalProperties() {
-        Properties properties = new Properties();
-        properties.setProperty("hibernate.hbm2ddl.auto", "update");
-        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
-        return properties;
-    }
+//    //JPA Config
+//    @Bean
+//    @Qualifier(value = "entityManager")
+//    public EntityManager entityManager(EntityManagerFactory entityManagerFactory) {
+//        return entityManagerFactory.createEntityManager();
+//    }
+//
+//    @Bean
+//    public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean() {
+//        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+//        em.setDataSource(dataSource());
+//        em.setPackagesToScan("com.codegym.model");
+//
+//        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+//        em.setJpaVendorAdapter(vendorAdapter);
+//        em.setJpaProperties(additionalProperties());
+//        return em;
+//    }
+//
+//    @Bean
+//    public DataSource dataSource() {
+//        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+//        dataSource.setUrl("jdbc:mysql://localhost:3306/phones");
+//        dataSource.setUsername("root");
+//        dataSource.setPassword("123456");
+//        return dataSource;
+//    }
+//
+//    @Bean
+//    public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
+//        JpaTransactionManager transactionManager = new JpaTransactionManager();
+//        transactionManager.setEntityManagerFactory(emf);
+//        return transactionManager;
+//    }
+//
+//    Properties additionalProperties() {
+//        Properties properties = new Properties();
+//        properties.setProperty("hibernate.hbm2ddl.auto", "update");
+//        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+//        return properties;
+//    }
 
 }
