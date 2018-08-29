@@ -7,7 +7,7 @@ public interface SmartphoneService {
 
     Smartphone findById(Integer id);
 
-    Smartphone save(Smartphone smartphone);
+    void save(Smartphone smartphone);
 
-    Smartphone remove(Integer id);
+    void remove(Integer id);
 }
