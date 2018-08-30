@@ -33,16 +33,28 @@
 
         });
     </script>
+    <style>
+        #container {
+            width: 950px;
+            margin: auto;
+        }
+        .table {
+            width: 800px;
+            margin: 50px auto;
+        }
+        tbody tr:hover {
+            background-color: darkgray;
+        }
+    </style>
 </head>
 <body>
 <div id="container">
     <h2>Smartphone 24H</h2>
-    <a th:href="@{/smartphones/create}">Create new product</a>
     <div>
-        <p>Here you can see a list of Smartphones:</p>
+        <p>List of all smartphones now we have</p>
         <div id="sPhoneFromResponse"></div>
     </div>
-    <table border="1px" cellpadding="0" cellspacing="0">
+    <table class="table">
         <thead>
         <tr>
             <th>Producer</th>
@@ -56,7 +68,7 @@
             <tr>
                 <td th:text="${phone.producer}"></td>
                 <td th:text="${phone.model}"></td>
-                <td th:text="${phone.price}"></td>
+                <td th:text="${phone.price} + '$'"></td>
                 <td>
                     <a th:href="@{/smartphones/edit/__${phone.id}__}">Edit</a><br/>
                     <a th:href="@{/smartphones/delete/__${phone.id}__}">Delete</a><br/>
@@ -65,7 +77,9 @@
         </th:block>
         </tbody>
     </table>
-    <a th:href="@{/}">Home page</a>
+    <a th:href="@{/smartphones/create}">Create new product</a>
+    <br/>
+    <a th:href="@{/}">Back to home page</a>
 </div>
 </body>
 </html>

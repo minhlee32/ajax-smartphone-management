@@ -42,10 +42,10 @@
     <style>
         #container {
             width: 500px;
-            margin: auto;
+            margin: 100px auto;
         }
         .row {
-            padding: 15px 15px 15px;
+            padding: 10px 10px 5px;
         }
 
     </style>
@@ -59,9 +59,9 @@
     </div>
         <form id="editSmartphoneForm" th:object="${sPhone}" class="form-group">
             <div class="row">
-            <div class="col-xs-3">
+            <div class="col-xs-4">
                 <label for="producer">Producer</label>
-                <select class="form-control" id="producer">
+                <select class="form-control" id="producer" th:field="*{producer}">
                     <option value="NOKIA">Nokia</option>
                     <option selected="selected" value="IPHONE">iPhone Apple</option>
                     <option value="HTC">HTC</option>
@@ -73,20 +73,20 @@
             </div>
             </div>
             <div class="row">
-                <div class="col-xs-3">
+                <div class="col-xs-4">
                 <label for="model">Model</label>
-                <input class="form-controll" id="model" type="text">
+                <input class="form-controll" id="model" th:field="*{model}">
             </div>
             </div>
             <div class="row">
-                <div class="col-xs-3">
+                <div class="col-xs-4">
                 <label for="price">Price</label>
-                <input class="form-controll" id="price" type="text">
+                <input class="form-controll" id="price" th:field="*{price}">
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-2">
-                <button type="button" class="btn btn-info">Edit</button>
+                <input type="submit" class="btn btn-info" value="Edit">
                 </div>
             </div>
             <a th:href="@{/smartphones}">Show List</a>
