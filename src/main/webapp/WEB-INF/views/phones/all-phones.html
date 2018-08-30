@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>List Smartphone</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -35,8 +36,8 @@
 </head>
 <body>
 <div id="container">
-    <h1>All Smartphones</h1>
-    <a th:href="@{/smartphones/create}">Create</a>
+    <h2>Smartphone 24H</h2>
+    <a th:href="@{/smartphones/create}">Create new product</a>
     <div>
         <p>Here you can see a list of Smartphones:</p>
         <div id="sPhoneFromResponse"></div>

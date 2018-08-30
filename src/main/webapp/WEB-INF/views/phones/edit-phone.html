@@ -40,15 +40,12 @@
         });
     </script>
     <style>
-        container {
+        #container {
             width: 500px;
-            margin: 150px auto;
+            margin: auto;
         }
         .row {
             padding: 15px 15px 15px;
-        }
-        input {
-            padding: 5px 5px 5px;
         }
 
     </style>
@@ -60,8 +57,8 @@
         <p>Choose producer then edit price or model</p>
         <div id="sPhoneFromResponse"></div>
     </div>
-    <div class="row">
         <form id="editSmartphoneForm" th:object="${sPhone}" class="form-group">
+            <div class="row">
             <div class="col-xs-3">
                 <label for="producer">Producer</label>
                 <select class="form-control" id="producer">
@@ -74,27 +71,26 @@
                     <option value="ASUS">Asus</option>
                 </select>
             </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3">
+                <label for="model">Model</label>
+                <input class="form-controll" id="model" type="text">
+            </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3">
+                <label for="price">Price</label>
+                <input class="form-controll" id="price" type="text">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2">
+                <button type="button" class="btn btn-info">Edit</button>
+                </div>
+            </div>
+            <a th:href="@{/smartphones}">Show List</a>
         </form>
-    </div>
-    <div class="row">
-        <div class="col-xs-3">
-            <label for="model">Model</label>
-            <input class="form-controll" id="model" type="text">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-3">
-            <label for="price">Price</label>
-            <input class="form-controll" id="price" type="text">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-2">
-            <button type="button" class="btn btn-info">Edit</button>
-        </div>
-    </div>
-    <br/>
-    <a th:href="@{/smartphones}">Show List</a>
 </div>
 </body>
 </html>
